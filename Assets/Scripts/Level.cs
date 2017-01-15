@@ -15,15 +15,16 @@ public class Level : MonoBehaviour {
     private bool complete = false;
     private float timeInLevel = 0;
 
-    public VRTK_SimplePointer pointer;
+    public GameObject endCube;
 
 	// Use this for initialization
 	void Awake() {
         dinosUnhappy = dinosaurs.Length;
-        pointer.enabled = false;
         Random.InitState(Mathf.RoundToInt(Time.time * 100000));
         SteamVR_Fade.View(Color.clear, 1);
-	}
+        endCube.SetActive(false);
+
+    }
 
     public bool GameStarted
     {
@@ -75,7 +76,7 @@ public class Level : MonoBehaviour {
         if (dinosUnhappy <= 0)
         {
             complete = true;
-            pointer.enabled = true;
+            endCube.SetActive(true);
         }
     }
 

@@ -13,7 +13,6 @@ public class UIController : MonoBehaviour {
     public Text timer;
     private Level level;
 
-    public Button toMenu;
  
 
     void Awake()
@@ -36,9 +35,6 @@ public class UIController : MonoBehaviour {
         {
             TimeSpan elapsed = TimeSpan.FromSeconds(level.LevelTime);
             timer.text = elapsed.Minutes.ToString().PadLeft(2, '0') + ":" + elapsed.Seconds.ToString().PadLeft(2, '0') + ":" + elapsed.Milliseconds.ToString().PadLeft(3, '0');
-        } else
-        {
-            toMenu.gameObject.SetActive(true);
         }
     }
 }
