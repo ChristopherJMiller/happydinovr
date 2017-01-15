@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using VRTK;
 
 public class Level : MonoBehaviour {
 
@@ -14,9 +15,12 @@ public class Level : MonoBehaviour {
     private bool complete = false;
     private float timeInLevel = 0;
 
+    public VRTK_SimplePointer pointer;
+
 	// Use this for initialization
-	void Start () {
+	void Awake() {
         dinosUnhappy = dinosaurs.Length;
+        pointer.enabled = false;
         Random.InitState(Mathf.RoundToInt(Time.time * 100000));
         SteamVR_Fade.View(Color.clear, 1);
 	}
@@ -71,6 +75,7 @@ public class Level : MonoBehaviour {
         if (dinosUnhappy <= 0)
         {
             complete = true;
+            pointer.enabled = true;
         }
     }
 
