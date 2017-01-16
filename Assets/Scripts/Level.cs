@@ -8,7 +8,7 @@ public class Level : MonoBehaviour {
     public Dinosaur[] dinosaurs;
 
 
-    private bool gameStarted = true;
+    private bool gameStarted = false;
 
     private int dinosUnhappy;
     private bool shouldCheckDinos = false;
@@ -17,11 +17,17 @@ public class Level : MonoBehaviour {
 
     public GameObject endCube;
 
-	// Use this for initialization
-	void Awake() {
+    public VRTK_BezierPointer teleportPointerLeft;
+    public VRTK_BezierPointer teleportPointerRight;
+
+
+    // Use this for initialization
+    void Awake() {
         dinosUnhappy = dinosaurs.Length;
         Random.InitState(Mathf.RoundToInt(Time.time * 100000));
         SteamVR_Fade.View(Color.clear, 1);
+        teleportPointerLeft.enableTeleport = false;
+        teleportPointerRight.enableTeleport = false;
         endCube.SetActive(false);
 
     }
@@ -68,6 +74,8 @@ public class Level : MonoBehaviour {
 
     public void startGame()
     {
+        teleportPointerLeft.enableTeleport = true;
+        teleportPointerRight.enableTeleport = true;
         gameStarted = true;
     }
 

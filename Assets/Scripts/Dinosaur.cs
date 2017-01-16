@@ -20,7 +20,7 @@ public class Dinosaur : MonoBehaviour {
 
     void OnCollisionEnter(Collision collider)
     {
-        if (collider.collider.gameObject.tag == "Bullet")
+        if (collider.collider.gameObject.tag == "Bullet" && GameObject.Find("LevelManager").GetComponent<Level>().GameStarted)
         {
             collider.collider.gameObject.SendMessage("explode");
             SetHappy();
@@ -30,6 +30,9 @@ public class Dinosaur : MonoBehaviour {
             gameObject.GetComponent<AudioSource>().pitch = soundPitch;
             gameObject.GetComponent<AudioSource>().clip = dinoSounds[soundClip];
             gameObject.GetComponent<AudioSource>().Play();
+        } else
+        {
+            Destroy(collider.gameObject);
         }
     }
 }

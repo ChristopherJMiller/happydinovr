@@ -20,7 +20,7 @@ public class HappyGun : MonoBehaviour {
         var device = SteamVR_Controller.Input((int)trackedObj.index);
         Debug.DrawLine(transform.position, transform.position - transform.up);
 
-        if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
+        if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger) && level.GameStarted)
         {
             GameObject projObject = (GameObject)Instantiate(projectile, gameObject.transform.position, Quaternion.identity);
             projObject.transform.Rotate(0, transform.rotation.y, 0);
