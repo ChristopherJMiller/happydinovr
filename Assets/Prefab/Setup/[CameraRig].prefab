@@ -245,7 +245,8 @@ GameObject:
   - component: {fileID: 92495388565781506}
   - component: {fileID: 81111484940580788}
   - component: {fileID: 114161868966057426}
-  - component: {fileID: 114463914114144152}
+  - component: {fileID: 114860344275828140}
+  - component: {fileID: 114360836288034690}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -365,7 +366,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1459217886963618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.1378274, y: 0.25419885, z: -0.12007353}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4374964393276216}
@@ -893,6 +894,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickOnPointerCollision: 1
   autoActivateWithinDistance: 0
+--- !u!114 &114360836288034690
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902184686763112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 0}
+  _ears: {fileID: 0}
+  wireframe: 0
 --- !u!114 &114404740032140022
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -952,20 +967,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Level Title
---- !u!114 &114463914114144152
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1902184686763112}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bca9ccf900ccc84c887d783321d27e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 0}
-  _ears: {fileID: 0}
-  wireframe: 0
 --- !u!114 &114494395919039666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1041,6 +1042,25 @@ MonoBehaviour:
   projectile: {fileID: 1000012893667004, guid: 0b506d3505d3a004289d67ae051fa2c0, type: 2}
   level: {fileID: 0}
   blastSound: {fileID: 82093389699765004}
+--- !u!114 &114860344275828140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1902184686763112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a43e992568b8e48b4bd489b9d96f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  front: {fileID: 2800000, guid: 8060643f30c69ea4eb995bc51d272a06, type: 3}
+  back: {fileID: 2800000, guid: befb6152e755b4840a883d54cf3884bf, type: 3}
+  left: {fileID: 2800000, guid: 81862d0f326a87f4ba4ffa279cee770e, type: 3}
+  right: {fileID: 2800000, guid: 4d6173fe58253a8438f2343ac6ed6879, type: 3}
+  top: {fileID: 2800000, guid: 5190d7a34f644a74facf81158264318b, type: 3}
+  bottom: {fileID: 2800000, guid: 28c86d5886982bd4d8c2d86aa5ef6d64, type: 3}
+  StereoCellSize: 1
+  StereoIpdMm: 64
 --- !u!114 &114880609140658202
 MonoBehaviour:
   m_ObjectHideFlags: 1
