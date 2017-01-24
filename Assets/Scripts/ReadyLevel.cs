@@ -16,10 +16,17 @@ public class ReadyLevel : MonoBehaviour {
     public GameObject getReadyTextObj;
     public Text countdownUI;
 
+    public AudioClip countdownDing;
+
+    private AudioSource source;
+    int currentSecond;
+
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         GetComponent<VRTK_ControllerEvents>().GripPressed += new ControllerInteractionEventHandler(DoGripPressed);
         GetComponent<VRTK_ControllerEvents>().GripReleased += new ControllerInteractionEventHandler(DoGripReleased);
+        currentSecond = timeUntilBegin;
     }
 
     private void DoGripPressed(object sender, ControllerInteractionEventArgs e)
@@ -40,6 +47,11 @@ public class ReadyLevel : MonoBehaviour {
             getReadyTextObj.SetActive(true);
             currentHolddown += Time.deltaTime;
             TimeSpan elapsed = TimeSpan.FromSeconds(timeUntilBegin - currentHolddown);
+            if (currentSecond != elapsed.Seconds)
+            {
+                source.PlayOneShot(countdownDing);
+                currentSecond = elapsed.Seconds;
+            }
             countdownUI.text = elapsed.Seconds.ToString().PadLeft(2, '0') + ":" + elapsed.Milliseconds.ToString().PadLeft(3, '0');
             if (currentHolddown >= timeUntilBegin)
             {
